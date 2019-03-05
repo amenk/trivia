@@ -1,7 +1,8 @@
 {
     "name": "self/php",
     "require-dev": {
-        "phpunit/phpunit": "^8.0"
+        "phpunit/phpunit": "^8.0",
+        "phpro/grumphp": "^0.15.0"
     },
     "authors": [
         {
