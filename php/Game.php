@@ -82,7 +82,7 @@ class Game
         }
     }
 
-    public function wasCorrectlyAnswered()
+    public function rightAnswer(): void
     {
         if (!$this->inPenaltyBox[$this->currentPlayer] || $this->isGettingOutOfPenaltyBox ) {
             echoln('Answer was correct!!!!');
@@ -96,15 +96,13 @@ class Game
     }
 
 
-    public function wrongAnswer()
+    public function wrongAnswer(): void
     {
         echoln('Question was incorrectly answered');
         echoln($this->players[$this->currentPlayer] . ' was sent to the penalty box');
         $this->inPenaltyBox[$this->currentPlayer] = true;
 
         $this->nextPlayer();
-
-        return true;
     }
 
     private function isWinner(int $playerNumber): bool {

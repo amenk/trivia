@@ -41,7 +41,7 @@ class GameTest extends \PHPUnit\Framework\TestCase
             if (rand(0, 9) == 7) {
                 $aGame->wrongAnswer();
             } else {
-                $aGame->wasCorrectlyAnswered();
+                $aGame->rightAnswer();
             }
         } while (!$aGame->isFinished());
     }
