@@ -1,0 +1,13 @@
+{
+    "name": "self/php",
+    "require-dev": {
+        "phpunit/phpunit": "^8.0"
+    },
+    "authors": [
+        {
+            "name": "Alexander Menk",
+            "email": "a.menk@imi.de"
+        }
+    ],
+    "require": {}
+}
