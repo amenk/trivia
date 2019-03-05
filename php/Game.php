@@ -30,7 +30,7 @@ class Game
             $this->popQuestions[] = "Pop Question " . $i;
             $this->scienceQuestions[] = "Science Question " . $i;
             $this->sportsQuestions[] = "Sports Question " . $i;
-            $this->rockQuestions[]= "Rock Question " . $i;
+            $this->rockQuestions[] = "Rock Question " . $i;
         }
     }
 
@@ -56,18 +56,11 @@ class Game
         echoln("They have rolled a " . $roll);
 
         if ($this->inPenaltyBox[$this->currentPlayer]) {
-            if ($roll % 2 != 0) {
-                $this->isGettingOutOfPenaltyBox = true;
+            $this->maybeLetOutOfPenaltyBox($roll);
+        }
 
-                echoln($this->players[$this->currentPlayer] . " is getting out of the penalty box");
-                $this->advanceCurrentPlayer($roll);
-            } else {
-                echoln($this->players[$this->currentPlayer] . " is not getting out of the penalty box");
-                $this->isGettingOutOfPenaltyBox = false;
-            }
-
-        } else {
-
+        if (!$this->inPenaltyBox[$this->currentPlayer] || $this->isGettingOutOfPenaltyBox)
+        {
             $this->advanceCurrentPlayer($roll);
         }
 
@@ -193,17 +186,27 @@ class Game
     /**
      * @param $roll
      */
-    private function advanceCurrentPlayer($roll): void
+    private function advanceCurrentPlayer(int $roll): void
     {
-        $this->places[$this->currentPlayer] = $this->places[$this->currentPlayer] + $roll;
-        if ($this->places[$this->currentPlayer] > 11) {
-            $this->places[$this->currentPlayer] = $this->places[$this->currentPlayer] - 12;
-        }
+        $this->places[$this->currentPlayer] = ($this->places[$this->currentPlayer] + $roll) % 12;
 
-        echoln($this->players[$this->currentPlayer]
-            . "'s new location is "
+        echoln($this->players[$this->currentPlayer] . "'s new location is "
             . $this->places[$this->currentPlayer]);
         echoln("The category is " . $this->currentCategory());
         $this->askQuestion();
+    }
+
+    /**
+     * @param $roll
+     */
+    private function maybeLetOutOfPenaltyBox($roll): void
+    {
+        if ($roll % 2 != 0) {
+            $this->isGettingOutOfPenaltyBox = true;
+            echoln($this->players[$this->currentPlayer] . " is getting out of the penalty box");
+        } else {
+            $this->isGettingOutOfPenaltyBox = false;
+            echoln($this->players[$this->currentPlayer] . " is not getting out of the penalty box");
+        }
     }
 }
