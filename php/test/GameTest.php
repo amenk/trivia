@@ -10,6 +10,8 @@ class GameTest extends \PHPUnit\Framework\TestCase
         $this->runGame();
         $output = ob_get_contents();
         ob_end_clean();
+
+        $this->assertNotEmpty($output);
     }
 
     /**
