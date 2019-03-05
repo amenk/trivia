@@ -39,9 +39,9 @@ class GameTest extends \PHPUnit\Framework\TestCase
             $aGame->roll(rand(0, 5) + 1);
 
             if (rand(0, 9) == 7) {
-                $notAWinner = $aGame->wrongAnswer();
+                $aGame->wrongAnswer();
             } else {
-                $notAWinner = $aGame->wasCorrectlyAnswered();
+                $aGame->wasCorrectlyAnswered();
             }
         } while (!$aGame->isGameFinished());
     }

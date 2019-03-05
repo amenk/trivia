@@ -84,21 +84,15 @@ class Game
 
     public function wasCorrectlyAnswered()
     {
-        if ($this->inPenaltyBox[$this->currentPlayer] && !  $this->isGettingOutOfPenaltyBox) {
-            $this->nextPlayer();
-
-            return true;
+        if (!$this->inPenaltyBox[$this->currentPlayer] || $this->isGettingOutOfPenaltyBox ) {
+            echoln("Answer was correct!!!!");
+            $this->purses[$this->currentPlayer]++;
+            echoln($this->players[$this->currentPlayer] . " now has "
+                . $this->purses[$this->currentPlayer] . " Gold Coins.");
         }
 
-        echoln("Answer was correct!!!!");
-        $this->purses[$this->currentPlayer]++;
-        echoln($this->players[$this->currentPlayer] . " now has "
-            . $this->purses[$this->currentPlayer] . " Gold Coins.");
-
-        $notAWinner = !$this->isWinner($this->currentPlayer);
         $this->nextPlayer();
 
-        return $notAWinner;
     }
 
 
