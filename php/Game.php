@@ -11,8 +11,6 @@ class Game
      */
     private $players = [];
 
-    private $inPenaltyBox = [0];
-
     private $currentPlayer = 0;
     private static $categories =
         [
@@ -38,7 +36,6 @@ class Game
     public function add(string $playerName): void
     {
         $this->players[] = new Player($playerName);
-        $this->inPenaltyBox[$this->countPlayers()] = false;
 
         echoln($playerName . ' was added');
         echoln('They are player number ' . $this->countPlayers());
@@ -54,11 +51,11 @@ class Game
         echoln($this->currentPlayerName() . ' is the current player');
         echoln('They have rolled a ' . $roll);
 
-        if ($this->inPenaltyBox[$this->currentPlayer]) {
+        if ($this->currentPlayer()->isInPenaltyBox) {
             $this->maybeLetOutOfPenaltyBox($roll);
         }
 
-        if ( ! $this->inPenaltyBox[$this->currentPlayer]) {
+        if ( ! $this->currentPlayer()->isInPenaltyBox) {
             $this->advanceCurrentPlayer($roll);
         }
 
@@ -83,9 +80,9 @@ class Game
 
     public function rightAnswer(): void
     {
-        if (!$this->inPenaltyBox[$this->currentPlayer]) {
+        if (!$this->currentPlayer()->isInPenaltyBox) {
             echoln('Answer was correct!!!!');
-            $this->currentPlayer()->addCoin();
+            $this->currentPlayer()->giveCoin();
             echoln($this->currentPlayerName() . ' now has '
                 . $this->currentPlayer()->purse . ' Gold Coins.');
         }
@@ -99,7 +96,7 @@ class Game
     {
         echoln('Question was incorrectly answered');
         echoln($this->currentPlayerName() . ' was sent to the penalty box');
-        $this->inPenaltyBox[$this->currentPlayer] = true;
+        $this->currentPlayer()->isInPenaltyBox = true;
 
         $this->nextPlayer();
     }
@@ -138,7 +135,7 @@ class Game
     private function maybeLetOutOfPenaltyBox($roll): void
     {
         if ($roll % 2 != 0) {
-            $this->inPenaltyBox[$this->currentPlayer] = false;
+            $this->currentPlayer()->isInPenaltyBox = false;
             echoln($this->currentPlayerName() . ' is getting out of the penalty box');
         } else {
             echoln($this->currentPlayerName() . ' is not getting out of the penalty box');
@@ -178,12 +175,14 @@ class Player
 
     public $purse = 0;
 
+    public $isInPenaltyBox = false;
+
     public function __construct($name)
     {
         $this->name = $name;
     }
 
-    public function addCoin()
+    public function giveCoin(): void
     {
         $this->purse++;
     }
