@@ -69,7 +69,7 @@ class Game
 
     private function currentCategory(): string
     {
-        $place = $this->currentPlayer()->place;
+        $place = $this->currentPlayer()->getPlace();
 
         foreach(self::$categories as $category=>$fields) {
             if (in_array($place, $fields, true)) {
@@ -120,8 +120,8 @@ class Game
      */
     private function advanceCurrentPlayer(int $roll): void
     {
-        $newPlace = ($this->currentPlayer()->place + $roll) % 12;
-        $this->players[$this->currentPlayer]->place = $newPlace;
+        $newPlace = ($this->currentPlayer()->getPlace() + $roll) % 12;
+        $this->players[$this->currentPlayer]->moveTo($newPlace);
 
         echoln($this->currentPlayerName() . '\'s new location is '
             . $this->currentPlayer()->place);
@@ -171,11 +171,11 @@ class Player
 {
     public $name;
 
-    public $place = 0;
-
     public $purse = 0;
 
     public $isInPenaltyBox = false;
+
+    private $place = 0;
 
     public function __construct($name)
     {
@@ -187,4 +187,13 @@ class Player
         $this->purse++;
     }
 
+    public function moveTo(int $place): void
+    {
+        $this->place = $place;
+    }
+
+    public function getPlace(): int
+    {
+        return $this->place;
+    }
 }
