@@ -49,7 +49,11 @@ Answer was correct!!!!
 Sue now has 2 Gold Coins.
 Chet is the current player
 They have rolled a 2
-Chet is not getting out of the penalty box
+Chet's new location is 8
+The category is Pop
+Pop Question 1
+Answer was correct!!!!
+Chet now has 2 Gold Coins.
 Pat is the current player
 They have rolled a 2
 Pat's new location is 10
@@ -66,7 +70,11 @@ Answer was correct!!!!
 Sue now has 3 Gold Coins.
 Chet is the current player
 They have rolled a 6
-Chet is not getting out of the penalty box
+Chet's new location is 2
+The category is Sports
+Sports Question 5
+Answer was correct!!!!
+Chet now has 3 Gold Coins.
 Pat is the current player
 They have rolled a 3
 Pat's new location is 1
@@ -78,17 +86,16 @@ Sue is the current player
 They have rolled a 1
 Sue's new location is 2
 The category is Sports
-Sports Question 5
+Sports Question 6
 Answer was correct!!!!
 Sue now has 4 Gold Coins.
 Chet is the current player
 They have rolled a 1
-Chet is getting out of the penalty box
-Chet's new location is 7
+Chet's new location is 3
 The category is Rock
 Rock Question 1
 Answer was correct!!!!
-Chet now has 2 Gold Coins.
+Chet now has 4 Gold Coins.
 Pat is the current player
 They have rolled a 6
 Pat is not getting out of the penalty box
@@ -101,19 +108,23 @@ Answer was correct!!!!
 Sue now has 5 Gold Coins.
 Chet is the current player
 They have rolled a 6
-Chet is not getting out of the penalty box
+Chet's new location is 9
+The category is Science
+Science Question 3
+Answer was correct!!!!
+Chet now has 5 Gold Coins.
 Pat is the current player
 They have rolled a 5
 Pat is getting out of the penalty box
 Pat's new location is 6
 The category is Sports
-Sports Question 6
+Sports Question 7
 Answer was correct!!!!
 Pat now has 4 Gold Coins.
 Sue is the current player
 They have rolled a 3
 Sue's new location is 8
 The category is Pop
-Pop Question 1
+Pop Question 2
 Answer was correct!!!!
 Sue now has 6 Gold Coins.

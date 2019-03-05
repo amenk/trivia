@@ -92,7 +92,6 @@ Question was incorrectly answered
 Chet was sent to the penalty box
 Pat is the current player
 They have rolled a 5
-Pat is getting out of the penalty box
 Pat's new location is 6
 The category is Sports
 Sports Question 4
@@ -110,7 +109,6 @@ They have rolled a 4
 Chet is not getting out of the penalty box
 Pat is the current player
 They have rolled a 1
-Pat is getting out of the penalty box
 Pat's new location is 7
 The category is Rock
 Rock Question 2

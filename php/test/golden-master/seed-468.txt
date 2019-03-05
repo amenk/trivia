@@ -115,7 +115,6 @@ They have rolled a 2
 Pat is not getting out of the penalty box
 Sue is the current player
 They have rolled a 1
-Sue is getting out of the penalty box
 Sue's new location is 5
 The category is Science
 Science Question 3
@@ -129,7 +128,6 @@ They have rolled a 4
 Pat is not getting out of the penalty box
 Sue is the current player
 They have rolled a 3
-Sue is getting out of the penalty box
 Sue's new location is 8
 The category is Pop
 Pop Question 4
@@ -151,7 +149,6 @@ They have rolled a 4
 Sue is not getting out of the penalty box
 Chet is the current player
 They have rolled a 5
-Chet is getting out of the penalty box
 Chet's new location is 6
 The category is Sports
 Sports Question 4

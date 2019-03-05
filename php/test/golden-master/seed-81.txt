@@ -87,7 +87,9 @@ Question was incorrectly answered
 Sue was sent to the penalty box
 Chet is the current player
 They have rolled a 6
-Chet is not getting out of the penalty box
+Chet's new location is 7
+The category is Rock
+Rock Question 4
 Question was incorrectly answered
 Chet was sent to the penalty box
 Pat is the current player

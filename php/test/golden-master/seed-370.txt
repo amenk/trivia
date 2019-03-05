@@ -105,7 +105,6 @@ Answer was correct!!!!
 Pat now has 5 Gold Coins.
 Sue is the current player
 They have rolled a 1
-Sue is getting out of the penalty box
 Sue's new location is 0
 The category is Pop
 Pop Question 1

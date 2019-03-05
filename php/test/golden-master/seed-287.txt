@@ -56,7 +56,9 @@ Question was incorrectly answered
 Chet was sent to the penalty box
 Pat is the current player
 They have rolled a 4
-Pat is not getting out of the penalty box
+Pat's new location is 9
+The category is Science
+Science Question 3
 Question was incorrectly answered
 Pat was sent to the penalty box
 Sue is the current player
@@ -72,7 +74,7 @@ Chet is not getting out of the penalty box
 Pat is the current player
 They have rolled a 3
 Pat is getting out of the penalty box
-Pat's new location is 8
+Pat's new location is 0
 The category is Pop
 Pop Question 4
 Answer was correct!!!!
@@ -89,17 +91,16 @@ They have rolled a 2
 Chet is not getting out of the penalty box
 Pat is the current player
 They have rolled a 1
-Pat is getting out of the penalty box
-Pat's new location is 9
+Pat's new location is 1
 The category is Science
-Science Question 3
+Science Question 4
 Answer was correct!!!!
 Pat now has 3 Gold Coins.
 Sue is the current player
 They have rolled a 6
 Sue's new location is 9
 The category is Science
-Science Question 4
+Science Question 5
 Answer was correct!!!!
 Sue now has 5 Gold Coins.
 Chet is the current player
@@ -107,8 +108,7 @@ They have rolled a 4
 Chet is not getting out of the penalty box
 Pat is the current player
 They have rolled a 5
-Pat is getting out of the penalty box
-Pat's new location is 2
+Pat's new location is 6
 The category is Sports
 Sports Question 0
 Answer was correct!!!!

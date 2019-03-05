@@ -69,7 +69,6 @@ They have rolled a 2
 Chet is not getting out of the penalty box
 Pat is the current player
 They have rolled a 3
-Pat is getting out of the penalty box
 Pat's new location is 11
 The category is Rock
 Rock Question 1
@@ -87,7 +86,6 @@ They have rolled a 2
 Chet is not getting out of the penalty box
 Pat is the current player
 They have rolled a 5
-Pat is getting out of the penalty box
 Pat's new location is 4
 The category is Pop
 Pop Question 2
@@ -105,7 +103,6 @@ They have rolled a 4
 Chet is not getting out of the penalty box
 Pat is the current player
 They have rolled a 5
-Pat is getting out of the penalty box
 Pat's new location is 9
 The category is Science
 Science Question 1

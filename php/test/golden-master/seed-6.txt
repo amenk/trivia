@@ -97,7 +97,6 @@ Answer was correct!!!!
 Pat now has 5 Gold Coins.
 Sue is the current player
 They have rolled a 3
-Sue is getting out of the penalty box
 Sue's new location is 11
 The category is Rock
 Rock Question 3

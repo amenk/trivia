@@ -56,7 +56,11 @@ Question was incorrectly answered
 Chet was sent to the penalty box
 Pat is the current player
 They have rolled a 6
-Pat is not getting out of the penalty box
+Pat's new location is 8
+The category is Pop
+Pop Question 3
+Answer was correct!!!!
+Pat now has 2 Gold Coins.
 Sue is the current player
 They have rolled a 5
 Sue's new location is 5
@@ -74,7 +78,11 @@ Question was incorrectly answered
 Chet was sent to the penalty box
 Pat is the current player
 They have rolled a 2
-Pat is not getting out of the penalty box
+Pat's new location is 10
+The category is Sports
+Sports Question 2
+Answer was correct!!!!
+Pat now has 3 Gold Coins.
 Sue is the current player
 They have rolled a 4
 Sue's new location is 9
@@ -89,8 +97,7 @@ Question was incorrectly answered
 Chet was sent to the penalty box
 Pat is the current player
 They have rolled a 1
-Pat is getting out of the penalty box
-Pat's new location is 3
+Pat's new location is 11
 The category is Rock
 Rock Question 1
 Question was incorrectly answered
@@ -99,7 +106,7 @@ Sue is the current player
 They have rolled a 3
 Sue's new location is 0
 The category is Pop
-Pop Question 3
+Pop Question 4
 Answer was correct!!!!
 Sue now has 5 Gold Coins.
 Chet is the current player
@@ -112,6 +119,6 @@ Sue is the current player
 They have rolled a 4
 Sue's new location is 4
 The category is Pop
-Pop Question 4
+Pop Question 5
 Answer was correct!!!!
 Sue now has 6 Gold Coins.

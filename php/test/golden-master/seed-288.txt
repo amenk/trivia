@@ -105,7 +105,6 @@ Question was incorrectly answered
 Sue was sent to the penalty box
 Chet is the current player
 They have rolled a 1
-Chet is getting out of the penalty box
 Chet's new location is 0
 The category is Pop
 Pop Question 4

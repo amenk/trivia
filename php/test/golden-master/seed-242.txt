@@ -99,7 +99,6 @@ Answer was correct!!!!
 Chet now has 4 Gold Coins.
 Pat is the current player
 They have rolled a 1
-Pat is getting out of the penalty box
 Pat's new location is 3
 The category is Rock
 Rock Question 3
@@ -114,7 +113,6 @@ Answer was correct!!!!
 Sue now has 5 Gold Coins.
 Chet is the current player
 They have rolled a 1
-Chet is getting out of the penalty box
 Chet's new location is 5
 The category is Science
 Science Question 3
@@ -122,7 +120,11 @@ Answer was correct!!!!
 Chet now has 5 Gold Coins.
 Pat is the current player
 They have rolled a 6
-Pat is not getting out of the penalty box
+Pat's new location is 9
+The category is Science
+Science Question 4
+Answer was correct!!!!
+Pat now has 5 Gold Coins.
 Sue is the current player
 They have rolled a 3
 Sue's new location is 11

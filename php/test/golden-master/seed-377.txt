@@ -100,7 +100,11 @@ Question was incorrectly answered
 Sue was sent to the penalty box
 Chet is the current player
 They have rolled a 6
-Chet is not getting out of the penalty box
+Chet's new location is 1
+The category is Science
+Science Question 0
+Answer was correct!!!!
+Chet now has 2 Gold Coins.
 Pat is the current player
 They have rolled a 4
 Pat's new location is 8

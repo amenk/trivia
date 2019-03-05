@@ -96,18 +96,22 @@ Answer was correct!!!!
 Chet now has 5 Gold Coins.
 Pat is the current player
 They have rolled a 6
-Pat is not getting out of the penalty box
+Pat's new location is 0
+The category is Pop
+Pop Question 4
+Answer was correct!!!!
+Pat now has 3 Gold Coins.
 Sue is the current player
 They have rolled a 4
 Sue's new location is 8
 The category is Pop
-Pop Question 4
+Pop Question 5
 Answer was correct!!!!
 Sue now has 5 Gold Coins.
 Chet is the current player
 They have rolled a 2
 Chet's new location is 0
 The category is Pop
-Pop Question 5
+Pop Question 6
 Answer was correct!!!!
 Chet now has 6 Gold Coins.

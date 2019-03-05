@@ -78,7 +78,6 @@ They have rolled a 6
 Pat is not getting out of the penalty box
 Sue is the current player
 They have rolled a 3
-Sue is getting out of the penalty box
 Sue's new location is 9
 The category is Science
 Science Question 3
@@ -101,7 +100,6 @@ Answer was correct!!!!
 Pat now has 3 Gold Coins.
 Sue is the current player
 They have rolled a 1
-Sue is getting out of the penalty box
 Sue's new location is 10
 The category is Sports
 Sports Question 4

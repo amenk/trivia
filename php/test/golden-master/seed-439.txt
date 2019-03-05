@@ -101,7 +101,11 @@ Answer was correct!!!!
 Pat now has 5 Gold Coins.
 Sue is the current player
 They have rolled a 4
-Sue is not getting out of the penalty box
+Sue's new location is 9
+The category is Science
+Science Question 5
+Answer was correct!!!!
+Sue now has 3 Gold Coins.
 Chet is the current player
 They have rolled a 3
 Chet's new location is 11

@@ -20,7 +20,7 @@ class GameTest extends \PHPUnit\Framework\TestCase
         for ($seed = 0; $seed < 500; $seed++) {
             $output = $this->getGameOutputForSeed($seed);
             $goldenMaster = $this->getGoldenMasterForSeed($seed);
-            $this->assertSame($goldenMaster, $output);
+            $this->assertSame($goldenMaster, $output, 'Golder master ' . $seed . ' not matched');
         }
     }
     /**

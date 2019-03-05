@@ -108,7 +108,6 @@ They have rolled a 4
 Chet is not getting out of the penalty box
 Pat is the current player
 They have rolled a 5
-Pat is getting out of the penalty box
 Pat's new location is 3
 The category is Rock
 Rock Question 3

@@ -12,7 +12,6 @@ class Game
     private $inPenaltyBox = [0];
 
     private $currentPlayer = 0;
-    private $isGettingOutOfPenaltyBox;
     private static $categories =
         [
             'Pop' => [0, 4, 8], 'Science' => [1, 5, 9], 'Sports' => [2, 6, 10], 'Rock' => [3, 7, 11]
@@ -59,7 +58,7 @@ class Game
             $this->maybeLetOutOfPenaltyBox($roll);
         }
 
-        if ( ! $this->inPenaltyBox[$this->currentPlayer] || $this->isGettingOutOfPenaltyBox) {
+        if ( ! $this->inPenaltyBox[$this->currentPlayer]) {
             $this->advanceCurrentPlayer($roll);
         }
 
@@ -84,7 +83,7 @@ class Game
 
     public function rightAnswer(): void
     {
-        if (!$this->inPenaltyBox[$this->currentPlayer] || $this->isGettingOutOfPenaltyBox ) {
+        if (!$this->inPenaltyBox[$this->currentPlayer]) {
             echoln('Answer was correct!!!!');
             $this->purses[$this->currentPlayer]++;
             echoln($this->players[$this->currentPlayer] . ' now has '
@@ -138,10 +137,9 @@ class Game
     private function maybeLetOutOfPenaltyBox($roll): void
     {
         if ($roll % 2 != 0) {
-            $this->isGettingOutOfPenaltyBox = true;
+            $this->inPenaltyBox[$this->currentPlayer] = false;
             echoln($this->players[$this->currentPlayer] . ' is getting out of the penalty box');
         } else {
-            $this->isGettingOutOfPenaltyBox = false;
             echoln($this->players[$this->currentPlayer] . ' is not getting out of the penalty box');
         }
     }

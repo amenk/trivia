@@ -119,7 +119,11 @@ Question was incorrectly answered
 Chet was sent to the penalty box
 Pat is the current player
 They have rolled a 6
-Pat is not getting out of the penalty box
+Pat's new location is 4
+The category is Pop
+Pop Question 4
+Answer was correct!!!!
+Pat now has 5 Gold Coins.
 Sue is the current player
 They have rolled a 2
 Sue's new location is 5
