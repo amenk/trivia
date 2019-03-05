@@ -34,18 +34,18 @@ class Game
         }
     }
 
-    public function add($playerName)
+    public function add(string $playerName): void
     {
         $this->players[] = $playerName;
-        $this->places[$this->howManyPlayers()] = 0;
-        $this->purses[$this->howManyPlayers()] = 0;
-        $this->inPenaltyBox[$this->howManyPlayers()] = false;
+        $this->places[$this->countPlayers()] = 0;
+        $this->purses[$this->countPlayers()] = 0;
+        $this->inPenaltyBox[$this->countPlayers()] = false;
 
         echoln($playerName . " was added");
-        echoln("They are player number " . count($this->players));
+        echoln("They are player number " . $this->countPlayers());
     }
 
-    private function howManyPlayers()
+    private function countPlayers(): int
     {
         return count($this->players);
     }
@@ -60,16 +60,7 @@ class Game
                 $this->isGettingOutOfPenaltyBox = true;
 
                 echoln($this->players[$this->currentPlayer] . " is getting out of the penalty box");
-                $this->places[$this->currentPlayer] = $this->places[$this->currentPlayer] + $roll;
-                if ($this->places[$this->currentPlayer] > 11) {
-                    $this->places[$this->currentPlayer] = $this->places[$this->currentPlayer] - 12;
-                }
-
-                echoln($this->players[$this->currentPlayer]
-                    . "'s new location is "
-                    . $this->places[$this->currentPlayer]);
-                echoln("The category is " . $this->currentCategory());
-                $this->askQuestion();
+                $this->advanceCurrentPlayer($roll);
             } else {
                 echoln($this->players[$this->currentPlayer] . " is not getting out of the penalty box");
                 $this->isGettingOutOfPenaltyBox = false;
@@ -77,16 +68,7 @@ class Game
 
         } else {
 
-            $this->places[$this->currentPlayer] = $this->places[$this->currentPlayer] + $roll;
-            if ($this->places[$this->currentPlayer] > 11) {
-                $this->places[$this->currentPlayer] = $this->places[$this->currentPlayer] - 12;
-            }
-
-            echoln($this->players[$this->currentPlayer]
-                . "'s new location is "
-                . $this->places[$this->currentPlayer]);
-            echoln("The category is " . $this->currentCategory());
-            $this->askQuestion();
+            $this->advanceCurrentPlayer($roll);
         }
 
     }
@@ -154,14 +136,14 @@ class Game
 
                 $winner = $this->didPlayerWin();
                 $this->currentPlayer++;
-                if ($this->currentPlayer == count($this->players)) {
+                if ($this->currentPlayer == $this->countPlayers()) {
                     $this->currentPlayer = 0;
                 }
 
                 return $winner;
             } else {
                 $this->currentPlayer++;
-                if ($this->currentPlayer == count($this->players)) {
+                if ($this->currentPlayer == $this->countPlayers()) {
                     $this->currentPlayer = 0;
                 }
 
@@ -180,7 +162,7 @@ class Game
 
             $winner = $this->didPlayerWin();
             $this->currentPlayer++;
-            if ($this->currentPlayer == count($this->players)) {
+            if ($this->currentPlayer == $this->countPlayers()) {
                 $this->currentPlayer = 0;
             }
 
@@ -196,7 +178,7 @@ class Game
         $this->inPenaltyBox[$this->currentPlayer] = true;
 
         $this->currentPlayer++;
-        if ($this->currentPlayer == count($this->players)) {
+        if ($this->currentPlayer == $this->countPlayers()) {
             $this->currentPlayer = 0;
         }
 
@@ -206,5 +188,22 @@ class Game
     private function didPlayerWin()
     {
         return ! ($this->purses[$this->currentPlayer] == 6);
+    }
+
+    /**
+     * @param $roll
+     */
+    private function advanceCurrentPlayer($roll): void
+    {
+        $this->places[$this->currentPlayer] = $this->places[$this->currentPlayer] + $roll;
+        if ($this->places[$this->currentPlayer] > 11) {
+            $this->places[$this->currentPlayer] = $this->places[$this->currentPlayer] - 12;
+        }
+
+        echoln($this->players[$this->currentPlayer]
+            . "'s new location is "
+            . $this->places[$this->currentPlayer]);
+        echoln("The category is " . $this->currentCategory());
+        $this->askQuestion();
     }
 }
