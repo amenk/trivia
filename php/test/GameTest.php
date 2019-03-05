@@ -14,6 +14,13 @@ class GameTest extends \PHPUnit\Framework\TestCase
         $this->assertNotSame($outputA, $outputC);
     }
 
+    public function testGoldenMaster()
+    {
+        $output = $this->getGameOutputForSeed(1);
+        $goldenMaster = $this->getGoldenMasterForSeed(1);
+
+        $this->assertSame($goldenMaster, $output);
+    }
     /**
      * @return mixed
      */
@@ -42,7 +49,7 @@ class GameTest extends \PHPUnit\Framework\TestCase
      *
      * @return false|string
      */
-    protected function getGameOutputForSeed($seed)
+    protected function getGameOutputForSeed($seed): string
     {
         srand($seed);
 
@@ -52,6 +59,20 @@ class GameTest extends \PHPUnit\Framework\TestCase
         ob_end_clean();
 
         return $output;
+    }
+
+    private function getGoldenMasterForSeed(int $seed): string
+    {
+        $file = __DIR__ . '/golden-msater/seed-' . $seed . '.txt';
+        if (! file_exists(dirname($file))) {
+            mkdir(dirname($file), 0700, true);
+        }
+
+        if (! file_exists($file)) {
+            file_put_contents($file, $this->getGameOutputForSeed($seed));
+        }
+
+        return file_get_contents($file);
     }
 
 }
