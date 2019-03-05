@@ -11,7 +11,6 @@ class Game
      */
     private $players = [];
 
-    private $places = [0];
     private $purses = [0];
     private $inPenaltyBox = [0];
 
@@ -40,7 +39,6 @@ class Game
     public function add(string $playerName): void
     {
         $this->players[] = new Player($playerName);
-        $this->places[$this->countPlayers()] = 0;
         $this->purses[$this->countPlayers()] = 0;
         $this->inPenaltyBox[$this->countPlayers()] = false;
 
@@ -76,7 +74,7 @@ class Game
 
     private function currentCategory(): string
     {
-        $place = $this->places[$this->currentPlayer];
+        $place = $this->currentPlayer()->place;
 
         foreach(self::$categories as $category=>$fields) {
             if (in_array($place, $fields, true)) {
@@ -127,10 +125,11 @@ class Game
      */
     private function advanceCurrentPlayer(int $roll): void
     {
-        $this->places[$this->currentPlayer] = ($this->places[$this->currentPlayer] + $roll) % 12;
+        $newPlace = ($this->currentPlayer()->place + $roll) % 12;
+        $this->players[$this->currentPlayer]->place = $newPlace;
 
         echoln($this->currentPlayerName() . '\'s new location is '
-            . $this->places[$this->currentPlayer]);
+            . $this->currentPlayer()->place);
         echoln('The category is ' . $this->currentCategory());
         $this->askQuestion();
     }
@@ -161,7 +160,15 @@ class Game
      */
     private function currentPlayerName(): string
     {
-        return $this->players[$this->currentPlayer]->name;
+        return $this->currentPlayer()->name;
+    }
+
+    /**
+     * @return Player
+     */
+    private function currentPlayer(): Player
+    {
+        return $this->players[$this->currentPlayer];
     }
 }
 
@@ -169,6 +176,8 @@ class Player
 {
     public $name;
 
+    public $place = 0;
+    
     public function __construct($name)
     {
         $this->name = $name;
