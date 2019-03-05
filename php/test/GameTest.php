@@ -4,10 +4,10 @@
 class GameTest extends \PHPUnit\Framework\TestCase
 {
 
-    public function testNothing()
+    public function testCanRunTheGame()
     {
-        $this->assertTrue(true);
 
+        include __DIR__ . '/../GameRunner.php';
     }
 
 }
