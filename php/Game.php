@@ -85,35 +85,31 @@ class Game
 
     private function currentCategory()
     {
-        if ($this->places[$this->currentPlayer] == 0) {
-            return "Pop";
+        $categories = ['Pop','Science', 'Sports', 'Rock'];
+
+        // FIXME: Move places into place
+        
+        $place = $this->places[$this->currentPlayer];
+
+        $popPlaces = [0, 4, 8];
+        $sciencePlace = [1, 5, 9];
+        $sportsPlaces = [2, 6, 10];
+        $rockPlaces = [3, 7, 11];
+
+        if (in_array($place, $popPlaces, true)) {
+            return $categories[0];
         }
-        if ($this->places[$this->currentPlayer] == 4) {
-            return "Pop";
+        if (in_array($place, $sciencePlace, true)) {
+            return $categories[1];
         }
-        if ($this->places[$this->currentPlayer] == 8) {
-            return "Pop";
+        if (in_array($place, $sportsPlaces, true)) {
+            return $categories[2];
         }
-        if ($this->places[$this->currentPlayer] == 1) {
-            return "Science";
-        }
-        if ($this->places[$this->currentPlayer] == 5) {
-            return "Science";
-        }
-        if ($this->places[$this->currentPlayer] == 9) {
-            return "Science";
-        }
-        if ($this->places[$this->currentPlayer] == 2) {
-            return "Sports";
-        }
-        if ($this->places[$this->currentPlayer] == 6) {
-            return "Sports";
-        }
-        if ($this->places[$this->currentPlayer] == 10) {
-            return "Sports";
+        if (in_array($place, $rockPlaces, true)) {
+            return $categories[3];
         }
 
-        return "Rock";
+
     }
 
     public function wasCorrectlyAnswered()
