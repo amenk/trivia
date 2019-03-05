@@ -11,7 +11,6 @@ class Game
      */
     private $players = [];
 
-    private $purses = [0];
     private $inPenaltyBox = [0];
 
     private $currentPlayer = 0;
@@ -39,7 +38,6 @@ class Game
     public function add(string $playerName): void
     {
         $this->players[] = new Player($playerName);
-        $this->purses[$this->countPlayers()] = 0;
         $this->inPenaltyBox[$this->countPlayers()] = false;
 
         echoln($playerName . ' was added');
@@ -87,9 +85,9 @@ class Game
     {
         if (!$this->inPenaltyBox[$this->currentPlayer]) {
             echoln('Answer was correct!!!!');
-            $this->purses[$this->currentPlayer]++;
+            $this->currentPlayer()->addCoin();
             echoln($this->currentPlayerName() . ' now has '
-                . $this->purses[$this->currentPlayer] . ' Gold Coins.');
+                . $this->currentPlayer()->purse . ' Gold Coins.');
         }
 
         $this->nextPlayer();
@@ -107,7 +105,7 @@ class Game
     }
 
     private function isWinner(int $playerNumber): bool {
-        return ($this->purses[$playerNumber] === 6);
+        return ($this->players[$playerNumber]->purse === 6);
     }
     public function isFinished(): bool
     {
@@ -177,11 +175,17 @@ class Player
     public $name;
 
     public $place = 0;
-    
+
+    public $purse = 0;
+
     public function __construct($name)
     {
         $this->name = $name;
     }
 
+    public function addCoin()
+    {
+        $this->purse++;
+    }
 
 }
