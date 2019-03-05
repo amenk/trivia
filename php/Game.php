@@ -84,7 +84,7 @@ class Game
             echoln('Answer was correct!!!!');
             $this->currentPlayer()->giveCoin();
             echoln($this->currentPlayerName() . ' now has '
-                . $this->currentPlayer()->purse . ' Gold Coins.');
+                . $this->currentPlayer()->getPurse() . ' Gold Coins.');
         }
 
         $this->nextPlayer();
@@ -102,7 +102,7 @@ class Game
     }
 
     private function isWinner(int $playerNumber): bool {
-        return ($this->players[$playerNumber]->purse === 6);
+        return ($this->players[$playerNumber]->getPurse() === 6);
     }
     public function isFinished(): bool
     {
@@ -167,15 +167,18 @@ class Game
     }
 }
 
+dsdsa
+
+
 class Player
 {
     public $name;
 
-    public $purse = 0;
-
     public $isInPenaltyBox = false;
 
     private $place = 0;
+
+    private $purse = 0;
 
     public function __construct($name)
     {
@@ -195,5 +198,13 @@ class Player
     public function getPlace(): int
     {
         return $this->place;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPurse(): int
+    {
+        return $this->purse;
     }
 }
