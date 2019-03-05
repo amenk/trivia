@@ -14,7 +14,10 @@ class Game
     private $currentPlayer = 0;
     private static $categories =
         [
-            'Pop' => [0, 4, 8], 'Science' => [1, 5, 9], 'Sports' => [2, 6, 10], 'Rock' => [3, 7, 11]
+            'Pop' => [0, 4, 8],
+            'Science' => [1, 5, 9],
+            'Sports' => [2, 6, 10],
+            'Rock' => [3, 7, 11]
         ];
 
     private $questions = [];
@@ -51,11 +54,11 @@ class Game
         echoln($this->currentPlayerName() . ' is the current player');
         echoln('They have rolled a ' . $roll);
 
-        if ($this->currentPlayer()->isInPenaltyBox) {
+        if ($this->currentPlayer()->isInPenaltyBox()) {
             $this->maybeLetOutOfPenaltyBox($roll);
         }
 
-        if ( ! $this->currentPlayer()->isInPenaltyBox) {
+        if ( ! $this->currentPlayer()->isInPenaltyBox()) {
             $this->advanceCurrentPlayer($roll);
         }
 
@@ -71,7 +74,7 @@ class Game
     {
         $place = $this->currentPlayer()->getPlace();
 
-        foreach(self::$categories as $category=>$fields) {
+        foreach (self::$categories as $category => $fields) {
             if (in_array($place, $fields, true)) {
                 return $category;
             }
@@ -80,7 +83,7 @@ class Game
 
     public function rightAnswer(): void
     {
-        if (!$this->currentPlayer()->isInPenaltyBox) {
+        if ( ! $this->currentPlayer()->isInPenaltyBox()) {
             echoln('Answer was correct!!!!');
             $this->currentPlayer()->giveCoin();
             echoln($this->currentPlayerName() . ' now has '
@@ -96,17 +99,19 @@ class Game
     {
         echoln('Question was incorrectly answered');
         echoln($this->currentPlayerName() . ' was sent to the penalty box');
-        $this->currentPlayer()->isInPenaltyBox = true;
+        $this->currentPlayer()->sendToPenaltyBox();
 
         $this->nextPlayer();
     }
 
-    private function isWinner(int $playerNumber): bool {
+    private function isWinner(int $playerNumber): bool
+    {
         return ($this->players[$playerNumber]->getPurse() === 6);
     }
+
     public function isFinished(): bool
     {
-        foreach($this->players as $i=>$player) {
+        foreach ($this->players as $i => $player) {
             if ($this->isWinner($i)) {
                 return true;
             }
@@ -135,7 +140,7 @@ class Game
     private function maybeLetOutOfPenaltyBox($roll): void
     {
         if ($roll % 2 != 0) {
-            $this->currentPlayer()->isInPenaltyBox = false;
+            $this->currentPlayer()->releaseFromPenaltyBox();
             echoln($this->currentPlayerName() . ' is getting out of the penalty box');
         } else {
             echoln($this->currentPlayerName() . ' is not getting out of the penalty box');
@@ -167,14 +172,11 @@ class Game
     }
 }
 
-dsdsa
-
-
 class Player
 {
     public $name;
 
-    public $isInPenaltyBox = false;
+    private $isInPenaltyBox = false;
 
     private $place = 0;
 
@@ -207,4 +209,20 @@ class Player
     {
         return $this->purse;
     }
+
+    public function sendToPenaltyBox(): void
+    {
+        $this->isInPenaltyBox = true;
+    }
+
+    public function releaseFromPenaltyBox()
+    {
+        $this->isInPenaltyBox = false;
+    }
+
+    public function isInPenaltyBox(): bool
+    {
+        return $this->isInPenaltyBox;
+    }
+
 }
