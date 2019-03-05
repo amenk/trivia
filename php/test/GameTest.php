@@ -16,10 +16,12 @@ class GameTest extends \PHPUnit\Framework\TestCase
 
     public function testGoldenMaster()
     {
-        $output = $this->getGameOutputForSeed(1);
-        $goldenMaster = $this->getGoldenMasterForSeed(1);
 
-        $this->assertSame($goldenMaster, $output);
+        for ($seed = 0; $seed < 1000; $seed++) {
+            $output = $this->getGameOutputForSeed($seed);
+            $goldenMaster = $this->getGoldenMasterForSeed($seed);
+            $this->assertSame($goldenMaster, $output);
+        }
     }
     /**
      * @return mixed
@@ -63,12 +65,13 @@ class GameTest extends \PHPUnit\Framework\TestCase
 
     private function getGoldenMasterForSeed(int $seed): string
     {
-        $file = __DIR__ . '/golden-msater/seed-' . $seed . '.txt';
+        $file = __DIR__ . '/golden-master/seed-' . $seed . '.txt';
         if (! file_exists(dirname($file))) {
             mkdir(dirname($file), 0700, true);
         }
 
         if (! file_exists($file)) {
+            $this->addWarning('Golden master for seed ' . $seed . ' did not exist');
             file_put_contents($file, $this->getGameOutputForSeed($seed));
         }
 
