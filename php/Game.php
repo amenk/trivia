@@ -134,7 +134,7 @@ class Game
      */
     private function maybeLetOutOfPenaltyBox($roll): void
     {
-        if ($roll % 2 != 0) {
+        if ($roll % 2 != 0) {dasd
             $this->currentPlayer()->isInPenaltyBox = false;
             echoln($this->currentPlayerName() . ' is getting out of the penalty box');
         } else {
