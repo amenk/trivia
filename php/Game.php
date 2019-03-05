@@ -176,7 +176,7 @@ class Player
 {
     public $name;
 
-    private $isInPenaltyBox = false;
+    privatex $isInPenaltyBox = false;
 
     private $place = 0;
 
