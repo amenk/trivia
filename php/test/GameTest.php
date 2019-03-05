@@ -4,10 +4,20 @@
 class GameTest extends \PHPUnit\Framework\TestCase
 {
 
-    public function testCanRunTheGame()
+    public function testCanRunTheGameDeterministically()
     {
+        ob_start();
+        $this->runGame();
+        $output = ob_get_contents();
+        ob_end_clean();
+    }
 
-        include __DIR__ . '/../GameRunner.php';
+    /**
+     * @return mixed
+     */
+    protected function runGame()
+    {
+        return include __DIR__ . '/../GameRunner.php';
     }
 
 }
