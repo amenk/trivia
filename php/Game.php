@@ -13,7 +13,10 @@ class Game
 
     private $currentPlayer = 0;
     private $isGettingOutOfPenaltyBox;
-    private static $categories = ['Pop', 'Science', 'Sports', 'Rock'];
+    private static $categories =
+        [
+            'Pop' => [0, 4, 8], 'Science' => [1, 5, 9], 'Sports' => [2, 6, 10], 'Rock' => [3, 7, 11]
+        ];
 
     private $questions = [];
 
@@ -25,7 +28,7 @@ class Game
     private function initializeQuestions(): void
     {
         for ($i = 0; $i < 50; $i++) {
-            foreach(self::$categories as $category) {
+            foreach (array_keys(self::$categories) as $category) {
                 $this->questions[$category][] = $category . ' Question ' . $i;
             }
         }
@@ -56,8 +59,7 @@ class Game
             $this->maybeLetOutOfPenaltyBox($roll);
         }
 
-        if (!$this->inPenaltyBox[$this->currentPlayer] || $this->isGettingOutOfPenaltyBox)
-        {
+        if ( ! $this->inPenaltyBox[$this->currentPlayer] || $this->isGettingOutOfPenaltyBox) {
             $this->advanceCurrentPlayer($roll);
         }
 
@@ -69,63 +71,37 @@ class Game
         echoln(array_shift($this->questions[$this->currentCategory()]));
     }
 
-    private function currentCategory()
+    private function currentCategory(): string
     {
-        $categories = self::$categories;
-
-        // FIXME: Move places into place
-        
         $place = $this->places[$this->currentPlayer];
 
-        $popPlaces = [0, 4, 8];
-        $sciencePlace = [1, 5, 9];
-        $sportsPlaces = [2, 6, 10];
-        $rockPlaces = [3, 7, 11];
-
-        if (in_array($place, $popPlaces, true)) {
-            return $categories[0];
+        foreach(self::$categories as $category=>$fields) {
+            if (in_array($place, $fields, true)) {
+                return $category;
+            }
         }
-        if (in_array($place, $sciencePlace, true)) {
-            return $categories[1];
-        }
-        if (in_array($place, $sportsPlaces, true)) {
-            return $categories[2];
-        }
-        if (in_array($place, $rockPlaces, true)) {
-            return $categories[3];
-        }
-
-
     }
 
     public function wasCorrectlyAnswered()
     {
+        if ($this->inPenaltyBox[$this->currentPlayer] && !  $this->isGettingOutOfPenaltyBox) {
+            $this->nextPlayer();
+
+            return true;
+        }
+
         if ($this->inPenaltyBox[$this->currentPlayer]) {
             if ($this->isGettingOutOfPenaltyBox) {
                 echoln("Answer was correct!!!!");
                 $this->purses[$this->currentPlayer]++;
-                echoln($this->players[$this->currentPlayer]
-                    . " now has "
-                    . $this->purses[$this->currentPlayer]
-                    . " Gold Coins.");
+                echoln($this->players[$this->currentPlayer] . " now has "
+                    . $this->purses[$this->currentPlayer] . " Gold Coins.");
 
                 $winner = $this->didPlayerWin();
-                $this->currentPlayer++;
-                if ($this->currentPlayer == $this->countPlayers()) {
-                    $this->currentPlayer = 0;
-                }
+                $this->nextPlayer();
 
                 return $winner;
-            } else {
-                $this->currentPlayer++;
-                if ($this->currentPlayer == $this->countPlayers()) {
-                    $this->currentPlayer = 0;
-                }
-
-                return true;
             }
-
-
         } else {
 
             echoln("Answer was corrent!!!!");
@@ -136,10 +112,7 @@ class Game
                 . " Gold Coins.");
 
             $winner = $this->didPlayerWin();
-            $this->currentPlayer++;
-            if ($this->currentPlayer == $this->countPlayers()) {
-                $this->currentPlayer = 0;
-            }
+            $this->nextPlayer();
 
             return $winner;
         }
@@ -152,10 +125,7 @@ class Game
         echoln($this->players[$this->currentPlayer] . " was sent to the penalty box");
         $this->inPenaltyBox[$this->currentPlayer] = true;
 
-        $this->currentPlayer++;
-        if ($this->currentPlayer == $this->countPlayers()) {
-            $this->currentPlayer = 0;
-        }
+        $this->nextPlayer();
 
         return true;
     }
@@ -189,6 +159,14 @@ class Game
         } else {
             $this->isGettingOutOfPenaltyBox = false;
             echoln($this->players[$this->currentPlayer] . " is not getting out of the penalty box");
+        }
+    }
+
+    private function nextPlayer(): void
+    {
+        $this->currentPlayer++;
+        if ($this->currentPlayer == $this->countPlayers()) {
+            $this->currentPlayer = 0;
         }
     }
 }
