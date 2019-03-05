@@ -90,32 +90,15 @@ class Game
             return true;
         }
 
-        if ($this->inPenaltyBox[$this->currentPlayer]) {
-            if ($this->isGettingOutOfPenaltyBox) {
-                echoln("Answer was correct!!!!");
-                $this->purses[$this->currentPlayer]++;
-                echoln($this->players[$this->currentPlayer] . " now has "
-                    . $this->purses[$this->currentPlayer] . " Gold Coins.");
+        echoln("Answer was correct!!!!");
+        $this->purses[$this->currentPlayer]++;
+        echoln($this->players[$this->currentPlayer] . " now has "
+            . $this->purses[$this->currentPlayer] . " Gold Coins.");
 
-                $winner = $this->didPlayerWin();
-                $this->nextPlayer();
+        $notAWinner = !$this->isWinner($this->currentPlayer);
+        $this->nextPlayer();
 
-                return $winner;
-            }
-        } else {
-
-            echoln("Answer was correct!!!!");
-            $this->purses[$this->currentPlayer]++;
-            echoln($this->players[$this->currentPlayer]
-                . " now has "
-                . $this->purses[$this->currentPlayer]
-                . " Gold Coins.");
-
-            $winner = $this->didPlayerWin();
-            $this->nextPlayer();
-
-            return $winner;
-        }
+        return $notAWinner;
     }
 
 
@@ -130,9 +113,18 @@ class Game
         return true;
     }
 
-    private function didPlayerWin()
+    private function isWinner(int $playerNumber): bool {
+        return ($this->purses[$playerNumber] === 6);
+    }
+    public function isGameFinished(): bool
     {
-        return ! ($this->purses[$this->currentPlayer] == 6);
+        foreach($this->players as $i=>$player) {
+            if ($this->isWinner($i)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
