@@ -11,13 +11,11 @@ class Game
     private $purses = [0];
     private $inPenaltyBox = [0];
 
-    private $popQuestions = [];
-    private $scienceQuestions = [];
-    private $sportsQuestions = [];
-    private $rockQuestions = [];
-
     private $currentPlayer = 0;
     private $isGettingOutOfPenaltyBox;
+    private static $categories = ['Pop', 'Science', 'Sports', 'Rock'];
+
+    private $questions = [];
 
     public function __construct()
     {
@@ -27,10 +25,9 @@ class Game
     private function initializeQuestions(): void
     {
         for ($i = 0; $i < 50; $i++) {
-            $this->popQuestions[] = "Pop Question " . $i;
-            $this->scienceQuestions[] = "Science Question " . $i;
-            $this->sportsQuestions[] = "Sports Question " . $i;
-            $this->rockQuestions[] = "Rock Question " . $i;
+            foreach(self::$categories as $category) {
+                $this->questions[$category][] = $category . ' Question ' . $i;
+            }
         }
     }
 
@@ -67,25 +64,14 @@ class Game
     }
 
 
-    private function askQuestion()
+    private function askQuestion(): void
     {
-        if ($this->currentCategory() == "Pop") {
-            echoln(array_shift($this->popQuestions));
-        }
-        if ($this->currentCategory() == "Science") {
-            echoln(array_shift($this->scienceQuestions));
-        }
-        if ($this->currentCategory() == "Sports") {
-            echoln(array_shift($this->sportsQuestions));
-        }
-        if ($this->currentCategory() == "Rock") {
-            echoln(array_shift($this->rockQuestions));
-        }
+        echoln(array_shift($this->questions[$this->currentCategory()]));
     }
 
     private function currentCategory()
     {
-        $categories = ['Pop','Science', 'Sports', 'Rock'];
+        $categories = self::$categories;
 
         // FIXME: Move places into place
         
