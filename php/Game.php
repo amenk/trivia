@@ -6,7 +6,11 @@ function echoln($string)
 
 class Game
 {
+    /**
+     * @var Player[]
+     */
     private $players = [];
+
     private $places = [0];
     private $purses = [0];
     private $inPenaltyBox = [0];
@@ -35,7 +39,7 @@ class Game
 
     public function add(string $playerName): void
     {
-        $this->players[] = $playerName;
+        $this->players[] = new Player($playerName);
         $this->places[$this->countPlayers()] = 0;
         $this->purses[$this->countPlayers()] = 0;
         $this->inPenaltyBox[$this->countPlayers()] = false;
@@ -51,7 +55,7 @@ class Game
 
     public function roll($roll)
     {
-        echoln($this->players[$this->currentPlayer] . ' is the current player');
+        echoln($this->currentPlayerName() . ' is the current player');
         echoln('They have rolled a ' . $roll);
 
         if ($this->inPenaltyBox[$this->currentPlayer]) {
@@ -86,7 +90,7 @@ class Game
         if (!$this->inPenaltyBox[$this->currentPlayer]) {
             echoln('Answer was correct!!!!');
             $this->purses[$this->currentPlayer]++;
-            echoln($this->players[$this->currentPlayer] . ' now has '
+            echoln($this->currentPlayerName() . ' now has '
                 . $this->purses[$this->currentPlayer] . ' Gold Coins.');
         }
 
@@ -98,7 +102,7 @@ class Game
     public function wrongAnswer(): void
     {
         echoln('Question was incorrectly answered');
-        echoln($this->players[$this->currentPlayer] . ' was sent to the penalty box');
+        echoln($this->currentPlayerName() . ' was sent to the penalty box');
         $this->inPenaltyBox[$this->currentPlayer] = true;
 
         $this->nextPlayer();
@@ -125,7 +129,7 @@ class Game
     {
         $this->places[$this->currentPlayer] = ($this->places[$this->currentPlayer] + $roll) % 12;
 
-        echoln($this->players[$this->currentPlayer] . '\'s new location is '
+        echoln($this->currentPlayerName() . '\'s new location is '
             . $this->places[$this->currentPlayer]);
         echoln('The category is ' . $this->currentCategory());
         $this->askQuestion();
@@ -138,9 +142,9 @@ class Game
     {
         if ($roll % 2 != 0) {
             $this->inPenaltyBox[$this->currentPlayer] = false;
-            echoln($this->players[$this->currentPlayer] . ' is getting out of the penalty box');
+            echoln($this->currentPlayerName() . ' is getting out of the penalty box');
         } else {
-            echoln($this->players[$this->currentPlayer] . ' is not getting out of the penalty box');
+            echoln($this->currentPlayerName() . ' is not getting out of the penalty box');
         }
     }
 
@@ -151,4 +155,24 @@ class Game
             $this->currentPlayer = 0;
         }
     }
+
+    /**
+     * @return mixed
+     */
+    private function currentPlayerName(): string
+    {
+        return $this->players[$this->currentPlayer]->name;
+    }
+}
+
+class Player
+{
+    public $name;
+
+    public function __construct($name)
+    {
+        $this->name = $name;
+    }
+
+
 }
