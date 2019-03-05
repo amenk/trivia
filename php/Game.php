@@ -124,7 +124,7 @@ class Game
         $this->players[$this->currentPlayer]->moveTo($newPlace);
 
         echoln($this->currentPlayerName() . '\'s new location is '
-            . $this->currentPlayer()->place);
+            . $this->currentPlayer()->getPlace());
         echoln('The category is ' . $this->currentCategory());
         $this->askQuestion();
     }
