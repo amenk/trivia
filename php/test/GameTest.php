@@ -17,7 +17,7 @@ class GameTest extends \PHPUnit\Framework\TestCase
     public function testGoldenMaster()
     {
 
-        for ($seed = 0; $seed < 1000; $seed++) {
+        for ($seed = 0; $seed < 500; $seed++) {
             $output = $this->getGameOutputForSeed($seed);
             $goldenMaster = $this->getGoldenMasterForSeed($seed);
             $this->assertSame($goldenMaster, $output);
