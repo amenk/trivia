@@ -43,7 +43,7 @@ class GameTest extends \PHPUnit\Framework\TestCase
             } else {
                 $aGame->wasCorrectlyAnswered();
             }
-        } while (!$aGame->isGameFinished());
+        } while (!$aGame->isFinished());
     }
 
     /**

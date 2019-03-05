@@ -41,8 +41,8 @@ class Game
         $this->purses[$this->countPlayers()] = 0;
         $this->inPenaltyBox[$this->countPlayers()] = false;
 
-        echoln($playerName . " was added");
-        echoln("They are player number " . $this->countPlayers());
+        echoln($playerName . ' was added');
+        echoln('They are player number ' . $this->countPlayers());
     }
 
     private function countPlayers(): int
@@ -52,8 +52,8 @@ class Game
 
     public function roll($roll)
     {
-        echoln($this->players[$this->currentPlayer] . " is the current player");
-        echoln("They have rolled a " . $roll);
+        echoln($this->players[$this->currentPlayer] . ' is the current player');
+        echoln('They have rolled a ' . $roll);
 
         if ($this->inPenaltyBox[$this->currentPlayer]) {
             $this->maybeLetOutOfPenaltyBox($roll);
@@ -85,10 +85,10 @@ class Game
     public function wasCorrectlyAnswered()
     {
         if (!$this->inPenaltyBox[$this->currentPlayer] || $this->isGettingOutOfPenaltyBox ) {
-            echoln("Answer was correct!!!!");
+            echoln('Answer was correct!!!!');
             $this->purses[$this->currentPlayer]++;
-            echoln($this->players[$this->currentPlayer] . " now has "
-                . $this->purses[$this->currentPlayer] . " Gold Coins.");
+            echoln($this->players[$this->currentPlayer] . ' now has '
+                . $this->purses[$this->currentPlayer] . ' Gold Coins.');
         }
 
         $this->nextPlayer();
@@ -98,8 +98,8 @@ class Game
 
     public function wrongAnswer()
     {
-        echoln("Question was incorrectly answered");
-        echoln($this->players[$this->currentPlayer] . " was sent to the penalty box");
+        echoln('Question was incorrectly answered');
+        echoln($this->players[$this->currentPlayer] . ' was sent to the penalty box');
         $this->inPenaltyBox[$this->currentPlayer] = true;
 
         $this->nextPlayer();
@@ -110,7 +110,7 @@ class Game
     private function isWinner(int $playerNumber): bool {
         return ($this->purses[$playerNumber] === 6);
     }
-    public function isGameFinished(): bool
+    public function isFinished(): bool
     {
         foreach($this->players as $i=>$player) {
             if ($this->isWinner($i)) {
@@ -128,9 +128,9 @@ class Game
     {
         $this->places[$this->currentPlayer] = ($this->places[$this->currentPlayer] + $roll) % 12;
 
-        echoln($this->players[$this->currentPlayer] . "'s new location is "
+        echoln($this->players[$this->currentPlayer] . '\'s new location is '
             . $this->places[$this->currentPlayer]);
-        echoln("The category is " . $this->currentCategory());
+        echoln('The category is ' . $this->currentCategory());
         $this->askQuestion();
     }
 
@@ -141,10 +141,10 @@ class Game
     {
         if ($roll % 2 != 0) {
             $this->isGettingOutOfPenaltyBox = true;
-            echoln($this->players[$this->currentPlayer] . " is getting out of the penalty box");
+            echoln($this->players[$this->currentPlayer] . ' is getting out of the penalty box');
         } else {
             $this->isGettingOutOfPenaltyBox = false;
-            echoln($this->players[$this->currentPlayer] . " is not getting out of the penalty box");
+            echoln($this->players[$this->currentPlayer] . ' is not getting out of the penalty box');
         }
     }
 
