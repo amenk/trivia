@@ -21,30 +21,28 @@ class Game
 
     public function __construct()
     {
-        for ($i = 0; $i < 50; $i++) {
-            array_push($this->popQuestions, "Pop Question " . $i);
-            array_push($this->scienceQuestions, ("Science Question " . $i));
-            array_push($this->sportsQuestions, ("Sports Question " . $i));
-            array_push($this->rockQuestions, $this->createRockQuestion($i));
-        }
+        $this->initializeQuestions();
     }
 
-    private function createRockQuestion($index)
+    private function initializeQuestions(): void
     {
-        return "Rock Question " . $index;
+        for ($i = 0; $i < 50; $i++) {
+            $this->popQuestions[] = "Pop Question " . $i;
+            $this->scienceQuestions[] = "Science Question " . $i;
+            $this->sportsQuestions[] = "Sports Question " . $i;
+            $this->rockQuestions[]= "Rock Question " . $i;
+        }
     }
 
     public function add($playerName)
     {
-        array_push($this->players, $playerName);
+        $this->players[] = $playerName;
         $this->places[$this->howManyPlayers()] = 0;
         $this->purses[$this->howManyPlayers()] = 0;
         $this->inPenaltyBox[$this->howManyPlayers()] = false;
 
         echoln($playerName . " was added");
         echoln("They are player number " . count($this->players));
-
-        return true;
     }
 
     private function howManyPlayers()
@@ -93,6 +91,7 @@ class Game
 
     }
 
+
     private function askQuestion()
     {
         if ($this->currentCategory() == "Pop") {
@@ -108,7 +107,6 @@ class Game
             echoln(array_shift($this->rockQuestions));
         }
     }
-
 
     private function currentCategory()
     {
@@ -190,6 +188,7 @@ class Game
         }
     }
 
+
     public function wrongAnswer()
     {
         echoln("Question was incorrectly answered");
@@ -203,7 +202,6 @@ class Game
 
         return true;
     }
-
 
     private function didPlayerWin()
     {
