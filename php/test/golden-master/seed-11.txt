@@ -9,7 +9,7 @@ They have rolled a 4
 Chet's new location is 4
 The category is Pop
 Pop Question 0
-Answer was corrent!!!!
+Answer was correct!!!!
 Chet now has 1 Gold Coins.
 Pat is the current player
 They have rolled a 1
@@ -30,7 +30,7 @@ They have rolled a 6
 Chet's new location is 10
 The category is Sports
 Sports Question 1
-Answer was corrent!!!!
+Answer was correct!!!!
 Chet now has 2 Gold Coins.
 Pat is the current player
 They have rolled a 2
@@ -50,7 +50,7 @@ They have rolled a 6
 Chet's new location is 4
 The category is Pop
 Pop Question 1
-Answer was corrent!!!!
+Answer was correct!!!!
 Chet now has 3 Gold Coins.
 Pat is the current player
 They have rolled a 1
@@ -73,7 +73,7 @@ They have rolled a 5
 Chet's new location is 9
 The category is Science
 Science Question 1
-Answer was corrent!!!!
+Answer was correct!!!!
 Chet now has 4 Gold Coins.
 Pat is the current player
 They have rolled a 1
@@ -96,7 +96,7 @@ They have rolled a 1
 Chet's new location is 10
 The category is Sports
 Sports Question 4
-Answer was corrent!!!!
+Answer was correct!!!!
 Chet now has 5 Gold Coins.
 Pat is the current player
 They have rolled a 2
@@ -116,5 +116,5 @@ They have rolled a 2
 Chet's new location is 0
 The category is Pop
 Pop Question 3
-Answer was corrent!!!!
+Answer was correct!!!!
 Chet now has 6 Gold Coins.

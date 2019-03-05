@@ -16,14 +16,14 @@ They have rolled a 5
 Pat's new location is 5
 The category is Science
 Science Question 0
-Answer was corrent!!!!
+Answer was correct!!!!
 Pat now has 1 Gold Coins.
 Sue is the current player
 They have rolled a 4
 Sue's new location is 4
 The category is Pop
 Pop Question 0
-Answer was corrent!!!!
+Answer was correct!!!!
 Sue now has 1 Gold Coins.
 Chet is the current player
 They have rolled a 3
@@ -38,7 +38,7 @@ They have rolled a 2
 Pat's new location is 7
 The category is Rock
 Rock Question 0
-Answer was corrent!!!!
+Answer was correct!!!!
 Pat now has 2 Gold Coins.
 Sue is the current player
 They have rolled a 4
@@ -55,7 +55,7 @@ They have rolled a 3
 Pat's new location is 10
 The category is Sports
 Sports Question 1
-Answer was corrent!!!!
+Answer was correct!!!!
 Pat now has 3 Gold Coins.
 Sue is the current player
 They have rolled a 4

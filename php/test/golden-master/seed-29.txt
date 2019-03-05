@@ -9,7 +9,7 @@ They have rolled a 6
 Chet's new location is 6
 The category is Sports
 Sports Question 0
-Answer was corrent!!!!
+Answer was correct!!!!
 Chet now has 1 Gold Coins.
 Pat is the current player
 They have rolled a 1
@@ -23,7 +23,7 @@ They have rolled a 3
 Sue's new location is 3
 The category is Rock
 Rock Question 0
-Answer was corrent!!!!
+Answer was correct!!!!
 Sue now has 1 Gold Coins.
 Chet is the current player
 They have rolled a 3
