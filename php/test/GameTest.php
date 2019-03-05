@@ -6,12 +6,12 @@ class GameTest extends \PHPUnit\Framework\TestCase
 
     public function testCanRunTheGameDeterministically()
     {
-        $outputA = $this->getGameOutput();
-        $outputB = $this->getGameOutput();
+        $outputA = $this->getGameOutputForSeed(1);
+        $outputB = $this->getGameOutputForSeed(1);
+        $outputC = $this->getGameOutputForSeed(2);
 
         $this->assertSame($outputA, $outputB);
-
-
+        $this->assertNotSame($outputA, $outputC);
     }
 
     /**
@@ -38,11 +38,13 @@ class GameTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
+     * @param $seed
+     *
      * @return false|string
      */
-    protected function getGameOutput()
+    protected function getGameOutputForSeed($seed)
     {
-        srand(1);
+        srand($seed);
 
         ob_start();
         $this->runGame();
